@@ -90,14 +90,14 @@ The following table details the modem parameters. The **Description** column des
 
 ## Technical Support
 
-If you want to evaluate more about HMS Core, [r/HMSCore on Reddit](https://www.reddit.com/r/HuaweiDevelopers/) is for you to keep up with latest news about HMS Core, and to exchange insights with other developers.
+If you want to evaluate more about HMS Core, [HMSCore on Reddit](https://www.reddit.com/r/HuaweiDevelopers/) is for you to keep up with latest news about HMS Core, and to exchange insights with other developers.
 
 If you have any questions about how to use HMS samples, try the following options:
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services) is the best place for any programming questions. Be sure to tag your question with \[huawei-mobile-services].
 - [The HMS Core module of HUAWEI Developer Forum](https://forums.developer.huawei.com/forumPortal/en/forum/hms-core) is great for general questions, or seeking recommendations and opinions.
 
-If you run into a bug in our samples, please submit an [issue]() to the Repository. Even better you can submit a [Pull Request]() with a fix.
+If you run into a bug in our samples, please submit an [issue](https://github.com/HMS-Core/hms-5g-modem-demo/issues) to the Repository. Even better you can submit a [Pull Request](https://github.com/HMS-Core/hms-5g-modem-demo/pulls) with a fix.
 
 ## License
 
