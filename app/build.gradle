@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
-    implementation 'com.huawei.hms:hms5gmodem-crowdtesting:6.0.0.301'
+    implementation 'com.huawei.hms:hms5gmodem-crowdtesting:6.0.0.302'
 }
 
 android.applicationVariants.all { variant ->
