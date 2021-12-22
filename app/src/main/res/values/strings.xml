@@ -6,6 +6,12 @@
     <string name="_5g_kit_test">5G KIT TEST</string>
     <string name="_5g_hms_kit_test">5G Hms Kit Test</string>
 
+    <string name="fe">FAILUREEVENT</string>
+    <string name="fe_scg">FE.SCG</string>
+    <string name="fe_rach">FE.RACH</string>
+    <string name="fe_rl">FE.RL</string>
+    <string name="fe_ho">FE.HO</string>
+
     <string name="lte">LTE</string>
     <string name="l_arfcn">L.Arfcn</string>
     <string name="l_pid">L.PID</string>
@@ -33,29 +39,45 @@
     <string name="l_s_rsrp">L.S.Rsrp</string>
     <string name="l_s_rsrq">L.S.Rsrq</string>
     <string name="l_s_sinr">L.S.Sinr</string>
+
     <string name="nr">NR</string>
+    <string name="n_spcinfo">N.SPCInfo</string>
+    <string name="n_sp_basic">N.SP.Basic</string>
+    <string name="n_sp_cfg">N.SP.Cfg</string>
+    <string name="n_sp_meas">N.SP.Meas</string>
     <string name="n_scinfo">N.SCInfo</string>
-    <string name="n_sc_arfcn">N.S.Arfcn</string>
-    <string name="n_sc_pci">N.S.PCI</string>
-    <string name="n_sc_band">N.S.Band</string>
-    <string name="n_sc_cgt">N.S.CGT</string>
-    <string name="n_sc_ct">N.S.CT</string>
-    <string name="n_sc_st">N.S.ST</string>
-    <string name="n_sc_dml">N.S.DML</string>
-    <string name="n_sc_dt">N.S.DT</string>
-    <string name="n_sc_srp">N.S.SRp</string>
-    <string name="n_sc_srq">N.S.SRq</string>
-    <string name="n_sc_ssr">N.S.SSr</string>
-    <string name="n_sc_crp">N.S.CRp</string>
-    <string name="n_sc_crq">N.S.CRq</string>
-    <string name="n_sc_csr">N.S.CSr</string>
+    <string name="n_sc_basic">N.S.Basic</string>
+    <string name="n_sc_cfg">N.S.Cfg</string>
+    <string name="n_sc_ssbmeasinfo">N.S.SsbMeas</string>
+
     <string name="bearer">BEARER</string>
     <string name="b_dinfo">B.DInfo</string>
     <string name="b_d_rbid">B.D.RbId</string>
     <string name="b_d_pver">B.D.PVer</string>
     <string name="b_d_btype">B.D.BType</string>
     <string name="b_d_dst">B.D.DST</string>
+
+    <string name="nd">NetDiagnosis</string>
+    <string name="nd_lteinfo">ND.LTE</string>
+    <string name="nd_nrinfo">ND.NR</string>
+    <string name="nd_l_rejcnt">ND.L.RC</string>
+    <string name="nd_l_rejinfos">ND.L.RI</string>
+    <string name="nd_l_pdnrejcnt">ND.L.PRC</string>
+    <string name="nd_l_pdnrejinfos">ND.L.PRI</string>
+    <string name="nd_l_ambrcnt">ND.L.AC</string>
+    <string name="nd_l_ambrs">ND.L.Ambrs</string>
+    <string name="nd_n_rejcnt">ND.N.RC</string>
+    <string name="nd_n_rejinfo">ND.N.RI</string>
+    <string name="nd_n_pdurejcnt">ND.N.PRC</string>
+    <string name="nd_n_pdurejinfo">ND.N.PRI</string>
+    <string name="nd_n_ambrcnt">ND.N.AC</string>
+    <string name="nd_n_ambrs">ND.N.Ambrs</string>
+
+    <string name="modem_slice">Modem.Slice</string>
+
     <string name="register">REG</string>
     <string name="common_query">QUERY</string>
     <string name="unregister">UNREG</string>
+    <string name="enable_event">ENABLE</string>
+    <string name="disable_event">DISABLE</string>
 </resources>

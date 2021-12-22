@@ -4,8 +4,11 @@
 
 package com.huawei.hms5gkit.activitys.constants;
 
+import com.huawei.hms5gkit.agentservice.constants.ModemType;
 import com.huawei.hms5gkit.agentservice.constants.parameters.Bearer;
 import com.huawei.hms5gkit.agentservice.constants.parameters.Lte;
+import com.huawei.hms5gkit.agentservice.constants.parameters.ModemSlice;
+import com.huawei.hms5gkit.agentservice.constants.parameters.NetDiagnosis;
 import com.huawei.hms5gkit.agentservice.constants.parameters.Nr;
 import com.huawei.hms5gkit.R;
 
@@ -42,29 +45,42 @@ public enum QueryParamsEnum {
     LTE_TYPE_SCELL_RSRQ(R.id.lte_s_rsrq, Lte.LTE_SCELL_rsrq),
     LTE_TYPE_SCELL_SINR(R.id.lte_s_sinr, Lte.LTE_SCELL_sinr),
 
-    NR_TYPE(R.id.nr_cb, Nr.NR),
-    NR_TYPE_SERVCELLINFO(R.id.nr_scinfo, Nr.NR_SERV_CELL_INFO),
-    NR_TYPE_SERVCELLINFO_SSBARFCN(R.id.nr_sc_arfcn, Nr.NR_SSB_ARFCN),
-    NR_TYPE_SERVCELLINFO_PHYCELLID(R.id.nr_sc_pci, Nr.NR_PHY_CELL_ID),
-    NR_TYPE_SERVCELLINFO_BAND(R.id.nr_sc_band, Nr.NR_BAND),
-    NR_TYPE_SERVCELLINFO_CGTYPE(R.id.nr_sc_cgt, Nr.NR_CGTYPE),
-    NR_TYPE_SERVCELLINFO_CELLTYPE(R.id.nr_sc_ct, Nr.NR_CELL_TYPE),
-    NR_TYPE_SERVCELLINFO_SCSTYPE(R.id.nr_sc_st, Nr.NR_SCS_TYPE),
-    NR_TYPE_SERVCELLINFO_DLMIMOLAYERS(R.id.nr_sc_dml, Nr.NR_DLMIMO_LAYERS),
-    NR_TYPE_SERVCELLINFO_DSSTYPE(R.id.nr_sc_dt, Nr.NR_DSS_TYPE),
-    NR_TYPE_SERVCELLINFO_SSBRSRP(R.id.nr_sc_srp, Nr.NR_SSB_RSRP),
-    NR_TYPE_SERVCELLINFO_SSBRSRQ(R.id.nr_sc_srq, Nr.NR_SSB_RSRQ),
-    NR_TYPE_SERVCELLINFO_SSBSINR(R.id.nr_sc_ssr, Nr.NR_SSB_SINR),
-    NR_TYPE_SERVCELLINFO_CSIRSRP(R.id.nr_sc_crp, Nr.NR_CSI_RSRP),
-    NR_TYPE_SERVCELLINFO_CSIRSRQ(R.id.nr_sc_crq, Nr.NR_CSI_RSRQ),
-    NR_TYPE_SERVCELLINFO_CSISINR(R.id.nr_sc_csr, Nr.NR_CSI_SINR),
+    NR_TYPE(R.id.nr, Nr.NR),
+    NR_TYPE_SERVPRIMARYCELLINFO(R.id.n_spcinfo, Nr.NR_SPCELL_INFO),
+    NR_TYPE_SERVCELLINFO(R.id.n_scinfo, Nr.NR_SCELL_INFO),
+    NR_TYPE_SERVPRIMARYCELLINFO_BASIC(R.id.n_sp_basic, Nr.NR_SPCELL_BASIC),
+    NR_TYPE_SERVPRIMARYCELLINFO_CFG(R.id.n_sp_cfg, Nr.NR_SPCELL_CFG),
+    NR_TYPE_SERVPRIMARYCELLINFO_MEAS(R.id.n_sp_meas, Nr.NR_SPCELL_MEAS),
+    NR_TYPE_SERVCELLINFO_BASIC(R.id.n_sc_basic, Nr.NR_SCELL_BASIC),
+    NR_TYPE_SERVCELLINFO_CFG(R.id.n_sc_cfg, Nr.NR_SCELL_CFG),
+    NR_TYPE_SERVCELLINFO_SSB_MEAS(R.id.n_sc_ssbmeasinfo, Nr.NR_SCELL_SSB_MEAS),
+
 
     BEARER_TYPE(R.id.bearer_cb, Bearer.BEARER),
     BEARER_TYPE_DRBINFO(R.id.bearer_dinfo, Bearer.BEARER_DRB_INFO),
     BEARER_TYPE_DRBINFO_RBID(R.id.bearer_d_rbid, Bearer.BEARER_RBID),
     BEARER_TYPE_DRBINFO_PDCPVERSION(R.id.bearer_d_pver, Bearer.BEARER_PDCP_VERSION),
     BEARER_TYPE_DRBINFO_BEARERTYPE(R.id.bearer_d_btype, Bearer.BEARER_BEARER_TYPE),
-    BEARER_TYPE_DRBINFO_DATASPLITTHRESHOLD(R.id.bearer_d_dst, Bearer.BEARER_DATA_SPLIT_THRESHOLD);
+    BEARER_TYPE_DRBINFO_DATASPLITTHRESHOLD(R.id.bearer_d_dst, Bearer.BEARER_DATA_SPLIT_THRESHOLD),
+
+    NET_TYPE_INFO(R.id.nd, NetDiagnosis.NET),
+    NET_TYPE_LTE_INFO(R.id.nd_lteinfo,NetDiagnosis.NET_LTE_INFO),
+    NET_TYPE_NR_INFO(R.id.nd_nrinfo,NetDiagnosis.NET_NR_INFO),
+    NET_TYPE_LTE_REJ_CNT(R.id.nd_l_rejcnt,NetDiagnosis.NET_LTE_REJ_CNT),
+    NET_TYPE_LTE_REJ_INFOS(R.id.nd_l_rejinfos,NetDiagnosis.NET_LTE_REJ_INFOS),
+    NET_TYPE_LTE_PDN_REJ_CNT(R.id.nd_l_pdnrejcnt,NetDiagnosis.NET_LTE_PDN_REJ_CNT),
+    NET_TYPE_LTE_PDN_REJ_INFOS(R.id.nd_l_pdnrejinfos,NetDiagnosis.NET_LTE_PDN_REJ_INFOS),
+    NET_TYPE_LTE_AMBR_CNT(R.id.nd_l_ambrcnt,NetDiagnosis.NET_LTE_AMBR_CNT),
+    NET_TYPE_LTE_AMBRS(R.id.nd_l_ambrs,NetDiagnosis.NET_LTE_AMBRS),
+    NET_TYPE_NR_REJ_CNT(R.id.nd_n_rejcnt,NetDiagnosis.NET_NR_REJ_CNT),
+    NET_TYPE_NR_REJ_INFO(R.id.nd_n_rejinfo,NetDiagnosis.NET_NR_REJ_INFO),
+    NET_TYPE_NR_PDU_REJ_CNT(R.id.nd_n_pdurejcnt,NetDiagnosis.NET_NR_PDU_REJ_CNT),
+    NET_TYPE_NR_PDU_REJ_INFO(R.id.nd_n_pdurejinfo,NetDiagnosis.NET_NR_PDU_REJ_INFO),
+    NET_TYPE_NR_AMBR_CNT(R.id.nd_n_ambrcnt,NetDiagnosis.NET_NR_AMBR_CNT),
+    NET_TYPE_NR_AMBR(R.id.nd_n_ambrs,NetDiagnosis.NET_NR_AMBR),
+
+    MODEM_SLICE(R.id.modem_slice, ModemSlice.MODEM_SLICE);
+
 
     private int resourceId; // Checkbox resource id
     private String queryName; // Request parameter

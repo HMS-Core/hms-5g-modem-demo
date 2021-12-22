@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 
+
 public class BaseActivity extends AppCompatActivity implements BaseViewInterface {
     protected LayoutInflater mInflater;
     protected Context mContext;

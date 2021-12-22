@@ -1,5 +1,7 @@
 # Huawei 5G Modem Kit Demo
 
+English | [中文](README_ZH)
+
 ## Table of Contents
 
 * [Introduction](#introduction)
@@ -15,8 +17,8 @@ The sample code encapsulates the Android API of the 5G Modem SDK and demonstrate
 
 ## Getting Started
 
-      1. Install Android Studio on your computer.
-      2. Open and run the sample project on your Android device.
+ 1. Install Android Studio on your computer.
+  2. Open and run the sample project on your Android device.
 
 ## Supported Environments
 
@@ -94,7 +96,7 @@ If you want to evaluate more about HMS Core, [HMSCore on Reddit](https://www.red
 
 If you have any questions about how to use HMS samples, try the following options:
 
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services) is the best place for any programming questions. Be sure to tag your question with \[huawei-mobile-services].
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services?tab=Votes) is the best place for any programming questions. Be sure to tag your question with \[huawei-mobile-services].
 - [The HMS Core module of HUAWEI Developer Forum](https://forums.developer.huawei.com/forumPortal/en/forum/hms-core) is great for general questions, or seeking recommendations and opinions.
 
 If you run into a bug in our samples, please submit an [issue](https://github.com/HMS-Core/hms-5g-modem-demo/issues) to the Repository. Even better you can submit a [Pull Request](https://github.com/HMS-Core/hms-5g-modem-demo/pulls) with a fix.

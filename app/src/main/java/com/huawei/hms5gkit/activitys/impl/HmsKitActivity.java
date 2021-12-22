@@ -20,6 +20,7 @@ import com.huawei.MyApplication;
 import com.huawei.hms5gkit.R;
 import com.huawei.hms5gkit.activitys.IHmsKitActivity;
 import com.huawei.hms5gkit.activitys.common.LoadingDialogCenter;
+import com.huawei.hms5gkit.activitys.constants.EventParamEnum;
 import com.huawei.hms5gkit.activitys.constants.QueryParamsEnum;
 import com.huawei.hms5gkit.presenter.HmsKitPresenter;
 import com.huawei.hms5gkit.utils.TimeStampUtils;
@@ -42,7 +43,8 @@ public class HmsKitActivity extends HmsKitBaseActivity implements IHmsKitActivit
 
     // Collection object used to store selected items
     // After query, all selected will not be cancelled
-    List<String> selected = new CopyOnWriteArrayList<>();
+    List<String> selectedparam = new CopyOnWriteArrayList<>();
+    List<String> selectedevent = new CopyOnWriteArrayList<>();
 
     @BindView(R.id.registerBtn)
     Button regBtn;
@@ -53,11 +55,19 @@ public class HmsKitActivity extends HmsKitBaseActivity implements IHmsKitActivit
     @BindView(R.id.unRegister)
     Button unRegisterBtn;
 
+    @BindView(R.id.enableEvent)
+    Button enableEventBtn;
+
+    @BindView(R.id.disableEvent)
+    Button disableEventBtn;
+
     @BindView(R.id.textOutput)
     TextView outputText;
 
     private HmsKitPresenter mHmsKitPresenter;
     List<CheckBox> mCheckBoxList;
+    List<CheckBox> mParamCheckBoxList;
+    List<CheckBox> mEventCheckBoxList;
 
     @Override
     protected int getLayoutId() {
@@ -81,15 +91,55 @@ public class HmsKitActivity extends HmsKitBaseActivity implements IHmsKitActivit
                 hasNotRegister();
                 return;
             }
-            if (selected.size() == 0) {
+            if (selectedparam.size() == 0) {
                 ToastUtil.toast("No Data Selected");
                 return;
             }
             LoadingDialogCenter.getInstance().showLoadingDialog(this, "Querying...");
-            mHmsKitPresenter.queryModem(selected);
+            mHmsKitPresenter.queryModem(selectedparam);
+//            String p = "";
+//            for(String e: selectedparam) {
+//                p = p + e + ",";
+//            }
+//            ToastUtil.toast("点击query:" + p);
         });
         unRegisterBtn.setOnClickListener(view -> mHmsKitPresenter.unRegisterCallback());
-        initCheckBoxes();
+        enableEventBtn.setOnClickListener(view ->{
+            if (!mHmsKitPresenter.getConnectStatus()) {
+                hasNotRegister();
+                return;
+            }
+            if (selectedevent.size() == 0) {
+                ToastUtil.toast("No Data Selected");
+                return;
+            }
+            LoadingDialogCenter.getInstance().showLoadingDialog(this, "Enabling Event...");
+            mHmsKitPresenter.enable(EventParamEnum.hasAllEvent(selectedevent));
+//            String p = "";
+//            for(String e: selectedevent) { //EventParamEnum.hasAllEvent(selectedevent)
+//               p = p + e + ",";
+//            }
+//            ToastUtil.toast("点击enable:" + p);
+        });
+        disableEventBtn.setOnClickListener(view ->{
+            if (!mHmsKitPresenter.getConnectStatus()) {
+                hasNotRegister();
+                return;
+            }
+            if (selectedevent.size() == 0) {
+                ToastUtil.toast("No Data Selected");
+                return;
+            }
+            LoadingDialogCenter.getInstance().showLoadingDialog(this, "Disabling Event...");
+            mHmsKitPresenter.disable(EventParamEnum.hasAllEvent(selectedevent));
+//            String p = "";
+//            for(String e: EventParamEnum.hasAllEvent(selectedevent)) { //EventParamEnum.hasAllEvent(selectedevent)
+//                p = p + e + ",";
+//            }
+//            ToastUtil.toast("点击disable:" + p);
+        });
+        initParamCheckBoxes();
+        initEventCheckBoxes();
         outputText.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
@@ -119,17 +169,26 @@ public class HmsKitActivity extends HmsKitBaseActivity implements IHmsKitActivit
 
     private CompoundButton.OnCheckedChangeListener mChangeListener = (buttonView, isChecked) -> {
         int resourceId = buttonView.getId();
-        String selectStr = QueryParamsEnum.getResourceId2QueryNameMap().getOrDefault(resourceId, "");
+        String selectParamStr = QueryParamsEnum.getResourceId2QueryNameMap().getOrDefault(resourceId, "");
+        String selectEventStr = EventParamEnum.getResourceId2EventNameMap().getOrDefault(resourceId, "");
         if (isChecked) {
             // Save a Map (key: resourceId, value: queryName),
             // Add the selected text to the list,
-            if (!"".equals(selectStr)) {
-                selected.add(selectStr);
+            if (!"".equals(selectParamStr)) {
+                selectedparam.add(selectParamStr);
+            }else if (!"".equals(selectEventStr))
+            {
+                selectedevent.add(selectEventStr);
             }
             setTextChocolate(buttonView);
         } else {
             // The text to be canceled is deleted from the selected list
-            selected.remove(selectStr);
+            if (!"".equals(selectParamStr)) {
+                selectedparam.remove(selectParamStr);
+            }else if (!"".equals(selectEventStr))
+            {
+                selectedevent.remove(selectEventStr);
+            }
             setTextBlack(buttonView);
         }
     };
@@ -140,7 +199,7 @@ public class HmsKitActivity extends HmsKitBaseActivity implements IHmsKitActivit
         Log.i(TAG, content);
     }
 
-    private void initCheckBoxes() {
+    private void initParamCheckBoxes() {
         CheckBox[] checkBoxes = new CheckBox[]{
                 lteCbox, lteArfcnCbox, ltePhyCellIdCbox, lteDlFreqCbox, lteBandCbox,
                 lteMimoCbox, lteDlBandWidthCbox, lteModeTypeCbox, lteTrackAreaCodeCbox,
@@ -149,24 +208,41 @@ public class HmsKitActivity extends HmsKitBaseActivity implements IHmsKitActivit
                 lteScellArfcnCbox, lteScellPhyCellIdCbox, lteScellDlFreqCbox, lteScellBandCbox,
                 lteScellMimoCbox, lteScellDlBandWidthCbox, lteScellRsrpCbox, lteScellRsrqCbox,
                 lteScellSinrCbox,
-                nrCbox, nrServCellInfoCbox, nrServCellInfoSsbArfchCbox,
-                nrServCellInfoPhyCellIdCbox, nrServCellInfoBandCbox, nrServCellInfoCgTypeCbox,
-                nrServCellInfoCellTypeCbox, nrServCellInfoScsTypeCbox, nrServCellInfoDlMimoLayersCbox,
-                nrServCellInfoDssTypeCbox, nrServCellInfoSsbRsrpCbox, nrServCellInfoSsbRsrqCbox,
-                nrServCellInfoSsbSinrCbox, nrServCellInfoCsiRsrpCbox, nrServCellInfoCsiRsrqCbox,
-                nrServCellInfoCsiSinrCbox,
+                nrCbox, nrServCellInfoCbox, nrServCellInfoBasicCbox,
+                nrServCellInfoCfgInfoCbox, nrServCellInfoSsbMeasCbox, nrSPCellInfoCbox, nrSPCellInfoBasicCbox,
+                nrSPCellInfoCfgInfoCbox, nrSPCellInfoMeasCbox,
                 bearerCbox, bearerDrbInfoCbox, bearerDrbInfoRbIdCbox,
                 bearerDrbInfoPdcpVersionCbox, bearerDrbInfoBearerTypeCbox,
-                bearerDrbInfoDataSplitThresholdCbox
+                bearerDrbInfoDataSplitThresholdCbox,
+                ndTypeCbox, ndLteInfoCbox, ndNrInfoCbox,
+                ndLteRejCntCbox, ndLteRejInfosCbox, ndLtePdnRejcntCbox,
+                ndLtePdnRejInfosCbox, ndLteAmbrCntCbox, ndLteAmbrsCbox, ndNrRejCntCbox,
+                ndNrRejInfosCbox, ndNrPduRejCntCbox, ndNrPduRejInfoCbox,
+                ndNrAmbrCntCbox,ndNrAmbrCbox,
+                modemsliceCbox
         };
-        mCheckBoxList = new ArrayList<>(Arrays.asList(checkBoxes));
-        for (CheckBox checkBox : mCheckBoxList) {
+        mParamCheckBoxList = new ArrayList<>(Arrays.asList(checkBoxes));
+        for (CheckBox checkBox : mParamCheckBoxList) {
+            checkBox.setOnCheckedChangeListener(mChangeListener);
+        }
+    }
+
+    private void initEventCheckBoxes() {
+        CheckBox[] checkBoxes = new CheckBox[]{
+                feScgCbox, feRachCbox, feRadioLinkCbox, feHandOverCbox
+        };
+        mEventCheckBoxList = new ArrayList<>(Arrays.asList(checkBoxes));
+        for (CheckBox checkBox : mEventCheckBoxList) {
             checkBox.setOnCheckedChangeListener(mChangeListener);
         }
     }
 
     public void cancelAll() {
-        for (CheckBox checkBox : mCheckBoxList) {
+        for (CheckBox checkBox : mParamCheckBoxList) {
+            checkBox.setChecked(false);
+            textBlack(checkBox);
+        }
+        for (CheckBox checkBox : mEventCheckBoxList) {
             checkBox.setChecked(false);
             textBlack(checkBox);
         }
