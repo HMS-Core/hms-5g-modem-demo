@@ -71,21 +71,34 @@
 | L.S.Rsrq  | LTE_SCELL_rsrq = "LTE.scell_rsrq"                            | LTE辅小区RSRQ测量值          |
 | L.S.Sinr  | LTE_SCELL_sinr = "LTE.scell_sinr"                            | LTE辅小区SINR测量值          |
 | NR        | NR = "NR"                                                    | 所有NR信息                   |
-| N.SCInfo  | NR_SERV_CELL_INFO = "NR.servCellInfo"                        | 所有NR服务小区信息           |
-| N.S.Arfcn | NR_SSB_ARFCN = "NR.servCellInfo_ssbArfcn"                    | NR小区下行SSB频点            |
-| N.S.PCI   | NR_PHY_CELL_ID = "NR.servCellInfo_phyCellId"                 | NR小区物理小区ID             |
-| N.S.Band  | NR_BAND = "NR.servCellInfo_band"                             | NR小区频带指示               |
-| N.S.CGT   | NR_CGTYPE = "NR.servCellInfo_cgType"                         | NR小区所属的CELL GROUP类型   |
-| N.S.CT    | NR_CELL_TYPE = "NR.servCellInfo_cellType"                    | NR小区类型                   |
-| N.S.ST    | NR_SCS_TYPE = "NR.servCellInfo_scsType"                      | NR小区子载波间隔             |
-| N.S.DML   | NR_DLMIMO_LAYERS = "NR.servCellInfo_dlMimoLayers"            | 空口配置的下行MIMO层数       |
-| N.S.DT    | NR_DSS_TYPE = "NR.servCellInfo_dssType"                      | DSS类型                      |
-| N.S.SRp   | NR_SSB_RSRP = "NR.servCellInfo_ssbRsrp"                      | NR服务小区SSB RSRP测量结果   |
-| N.S.SRq   | NR_SSB_RSRQ = "NR.servCellInfo_ssbRsrq"                      | NR服务小区SSB RSRQ测量结果   |
-| N.S.SSr   | NR_SSB_SINR = "NR.servCellInfo_ssbSinr"                      | NR服务小区SSB SINR测量结果   |
-| N.S.CRp   | NR_CSI_RSRP = "NR.servCellInfo_csiRsrp"                      | NR服务小区CSIRS RSRP测量结果 |
-| N.S.CRq   | NR_CSI_RSRQ = "NR.servCellInfo_csiRsrq"                      | NR服务小区CSIRS RSRQ测量结果 |
-| N.S.CSr   | NR_CSI_SINR = "NR.servCellInfo_csiSinr"                      | NR服务小区CSIRS SINR测量结果 |
+| N.SPCInfo | NR_SPCELL_INFO = "NR.spCellInfo"                             | NR SpCell信息                |
+| N.SP.Basic| NR_SPCELL_BASIC = "NR.spCellInfo_basicInfo"                  | NR SpCell的基本信息          |
+| N.SP.Cfg  | NR_SPCELL_CFG = "NR.spCellInfo_cfgInfo"                      | NR SpCell的配置信息          |
+| N.SP.Meas | NR_SPCELL_MEAS = "NR.spCellInfo_measInfo "                   | NR SpCell的测量信息          |
+| N.SCInfo  | NR_SCELL_INFO = "NR.sCellInfo"                               | NR辅小区信息                 |
+| N.S.Basic | NR_SCELL_BASIC = "NR.sCellInfo_basicInfo"                    | NR辅小区的基本信息           |
+| N.S.Cfg   | NR_SCELL_CFG = "NR.sCellInfo_cfgInfo"                        | NR辅小区的配置信息           |
+| N.S.SsbMeas | NR_SCELL_SSB_MEAS = "NR. sCellInfo_ssbMeasInfo "           | NR辅小区的测量信息           |
+| NetDiagnosis| NET = "NETDIAGNOSIS"                                       | 网络诊断信息                 |
+| ND.LTE    | NET_LTE_INFO = "NETDIAGNOSIS.lteInfo"                        | LTE网络的诊断信息            |
+| ND.NR     | NET_NR_INFO = "NETDIAGNOSIS.nrInfo"                          | NR网络的诊断信息             |
+| ND.L.RC   | NET_LTE_REJ_CNT = "NETDIAGNOSIS.lteInfo_rejCnt"              | LTE注册被拒次数              |
+| ND.L.RI   | NET_LTE_REJ_INFOS = "NETDIAGNOSIS.lteInfo_rejInfos"          | LTE注册被拒详细信息          |
+| ND.L.PRC  | NET_LTE_PDN_REJ_CNT = "NETDIAGNOSIS.lteInfo_pdnRejCnt"       | LTE建立pdn被拒次数           |
+| ND.L.PRI  | NET_LTE_PDN_REJ_INFOS = "NETDIAGNOSIS.lteInfo_pdnRejInfos"   | LTE建立pdn被拒信息           |
+| ND.L.AC   | NET_LTE_AMBR_CNT = "NETDIAGNOSIS.lteInfo_ambrCnt"            | LTE PDU承载AMBR个数          |
+| ND.L.Ambrs | NET_LTE_AMBRS = "NETDIAGNOSIS.lteInfo_ambrs"                | 缺省承载对应的Ambr信息       |
+| ND.N.RC   | NET_NR_REJ_CNT = "NETDIAGNOSIS.nrInfo_rejCnt"                | NR注册被拒次数               |
+| ND.N.RI   | NET_NR_REJ_INFO = "NETDIAGNOSIS.nrInfo_rejInfos"             | NR注册被拒详细信息           |
+| ND.N.PRC  | NET_NR_PDU_REJ_CNT = "NETDIAGNOSIS.nrInfo_pduRejCnt"         | PDU session建立被拒次数      |
+| ND.N.PRI  | NET_NR_PDU_REJ_INFO = "NETDIAGNOSIS. nrInfo_pduRejInfo"      | PDU session建立被拒信息      |
+| ND.N.AC   | NET_NR_AMBR_CNT = "NETDIAGNOSIS.nrInfo_ambrCnt"              | pdu session AMBR信息个数     |
+| ND.N.Ambrs | NET_NR_AMBR = "NETDIAGNOSIS. nrInfo_ambr"                   | NR SESSION-AMBR信息          |
+| FE.SCG   | NET_NR_PDU_REJ_CNT = "NETDIAGNOSIS.nrInfo_pduRejCnt"          | SCG FAILURE流程异常主动上报开关 |
+| FE.RACH  | NET_NR_PDU_REJ_INFO = "NETDIAGNOSIS. nrInfo_pduRejInfo"       | RACH FAILURE流程异常主动上报开关 |
+| FE.RL    | NET_NR_AMBR_CNT = "NETDIAGNOSIS.nrInfo_ambrCnt"               | RADIOLINK FAILURE流程异常主动上报开关 |
+| FE.HO    | NET_NR_AMBR = "NETDIAGNOSIS. nrInfo_ambr"                     | HANDOVER FAILURE流程异常主动上报开关 |
+| Modem.Slice | NET_NR_AMBR = "NETDIAGNOSIS. nrInfo_ambr"                  | modem系统时间戳信息          |
 | BEARER    | BEARER = "BEARER"                                            | 所有BEARER信息               |
 | B.DInfo   | BEARER_DRB_INFO = "BEARER.drbInfo"                           | 所有drb信息                  |
 | B.D.RbId  | BEARER_RBID = "BEARER.drbInfo_rbId"                          | DRB ID                       |
@@ -100,9 +113,9 @@
 如果您对使用HMS示例代码有疑问，请尝试：
 
 - 开发过程遇到问题上[Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services?tab=Votes)，在\[huawei-mobile-services]标签下提问，有华为研发专家在线一对一解决您的问题。
-- 到[华为开发者论坛](https://developer.huawei.com/consumer/cn/forum/blockdisplay?fid=18) HMS Core板块与其他开发者进行交流。
+- 到[华为开发者论坛](https://developer.huawei.com/consumer/cn/forum/blockdisplay?fid=18?ha_source=hms1) HMS Core板块与其他开发者进行交流。
 
-如果您在尝试示例代码中遇到问题，请向仓库提交[issue](https://github.com/HMS-Core/hms-5g-modem-demo/issues)，也欢迎您提交[Pull Request](https://github.com/HMS-Core/hms-5g-modem-demo/pulls)。
+如果您在尝试示例代码中遇到问题，请向仓库提交[issue]()，也欢迎您提交[Pull Request]()。
 
 ##  授权许可
 
