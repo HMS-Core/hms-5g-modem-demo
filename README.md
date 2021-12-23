@@ -1,6 +1,6 @@
 # Huawei 5G Modem Kit Demo
 
-English | [中文](README_ZH)
+English | [中文](README_ZH.md)
 
 ## Table of Contents
 
